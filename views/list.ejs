@@ -1,0 +1,25 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+    <% newListItems.forEach(function(item){ %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <!-- 박스가 체크되면 체크된 박스의 id를 form에 전달된다 -->
+          <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+          <p><%= item.name %></p>
+        </div>
+      </form>
+      <% }) %>
+
+      <!-- submit button이 눌려지면 모든 데이터를 form에 저장하고 루트 라우터로 post 요청을 보낸 -->
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list">+</button>
+      </form>
+  </div>
+
+<%- include("footer") -%>
