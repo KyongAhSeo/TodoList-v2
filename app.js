@@ -31,15 +31,15 @@ const Item = mongoose.model("Item", itemsSchema);
 
 //5. default item 생성
 const item1 = new Item({
-  name: "Welcome to your todolist!"
+  name: "ToDoList에 오신 것을 환영합니다!"
 });
 
 const item2 = new Item({
-  name: "Hit the + button to add a new item."
+  name: "+ 버튼을 눌러서 할 일을 추가하세요."
 });
 
 const item3 = new Item({
-  name: "<-- Hit this to delete an item."
+  name: "<-- 버튼을 클릭하면 삭제됩니다."
 });
 
 //6. default item이 들어갈 array 생성
