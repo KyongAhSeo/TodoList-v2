@@ -2,13 +2,14 @@ html {
   background-color: #f6ecf0;
   background-image: -webkit-linear-gradient(65deg, #cd5d7d 50%, #f6ecf0 50%);
   min-height: 1000px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 h1 {
   color: #fff;
   padding: 10px;
   margin: 0px;
+  font-family: 'Playfair Display', serif;
 }
 
 .box {
@@ -94,4 +95,5 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-family: 'Playfair Display', serif;
 }
