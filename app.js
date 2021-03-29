@@ -35,7 +35,7 @@ const item1 = new Item({
 });
 
 const item2 = new Item({
-  name: "<-- 버튼을 클릭하면 삭제됩니다."
+  name: "url뒤에 /를 쓰고 새로운 List를 만들어보세요."
 });
 
 //6. default item이 들어갈 array 생성

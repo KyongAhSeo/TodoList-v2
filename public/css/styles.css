@@ -54,7 +54,7 @@ input[type="checkbox"] {
 p {
   margin: 0;
   padding: 20px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 200;
   color: #00204a;
 }
@@ -64,7 +64,13 @@ form.item {
   margin-left: 20px;
 }
 
-button {
+.listOfItems{
+  width: 280px;
+  padding: 1px 2px;
+  overflow: auto;
+}
+
+.plusBtn {
   min-height: 50px;
   width: 50px;
   border-color: none;
@@ -75,12 +81,25 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.plusBtn:hover {
   background-color: #a7c5eb;
   border-style: none;
 }
 
-button:focus{
+.plusBtn:focus{
+  outline:none;
+}
+
+.deleteBtn{
+  border-color: none;
+  min-height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.deleteBtn:focus{
   outline:none;
 }
 

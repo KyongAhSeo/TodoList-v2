@@ -7,15 +7,16 @@
 
 <div class="box">
   <form class="item" action="/" method="post">
-    <input type="text" name="newItem" placeholder="할 일" autocomplete="off">
-    <button type="submit" name="list" value="<%=listTitle%>">+</button>
+    <input type="text" name="newItem" placeholder="Add Item" autocomplete="off">
+    <button class="plusBtn" type="submit" name="list" value="<%=listTitle%>">+</button>
   </form>
 
   <% newListItems.forEach(function(item){ %>
   <form action="/delete" method="post">
     <div class="item">
-      <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
-      <p><%= item.name %></p>
+      <input type="checkbox">
+      <p class="listOfItems"><%= item.name %></p>
+      <button class="deleteBtn" type="submit" name="checkbox" value="<%=item._id%>"><i class="binIcon far fa-trash-alt fa-sm"></i></button>
       <input type="hidden" name="listName" value="<%=listTitle%>">
     </div>
   </form>
