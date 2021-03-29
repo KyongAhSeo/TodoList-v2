@@ -31,11 +31,11 @@ const Item = mongoose.model("Item", itemsSchema);
 
 //5. default item 생성
 const item1 = new Item({
-  name: "ToDoList에 오신 것을 환영합니다!"
+  name: "환영합니다!"
 });
 
 const item2 = new Item({
-  name: "+ 버튼을 눌러서 할 일을 추가하세요."
+  name: "+ 버튼을 눌러서 해야 될 일을 추가하세요."
 });
 
 const item3 = new Item({
@@ -170,5 +170,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function() {
-  console.log("Server hast started");
+  console.log("Server has started");
 });
