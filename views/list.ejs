@@ -1,28 +1,25 @@
 <%- include("header") -%>
 
-  <div class="box" id="heading">
-    <h1 class="title"> <%= listTitle %> </h1>
-    <h1> <%=kindOfDay %> </h1>
-  </div>
+<div class="box" id="heading">
+  <h1> <%= listTitle %> </h1>
+  <h2> <%= kindOfDay %> </h2>
+</div>
 
-  <div class="box">
-    <% newListItems.forEach(function(item){ %>
-      <form action="/delete" method="post">
-        <div class="item">
-          <!-- 박스가 체크되면 체크된 박스의 id를 form에 전달된다 -->
-          <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
-          <p><%= item.name %></p>
-          <!-- ListName을 받아오기 위해서 hidden 필드를 작성한다 -->
-          <input type="hidden" name="listName" value="<%=listTitle%>"></input>
-        </div>
-      </form>
-      <% }) %>
+<div class="box">
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="할 일" autocomplete="off">
+    <button type="submit" name="list" value="<%=listTitle%>">+</button>
+  </form>
 
-      <!-- submit button이 눌려지면 모든 데이터를 form에 저장하고 루트 라우터로 post 요청을 보낸 -->
-      <form class="item" action="/" method="post">
-        <input type="text" name="newItem" placeholder="해야될일" autocomplete="off">
-        <button type="submit" name="list" value="<%=listTitle%>">+</button>
-      </form>
-  </div>
+  <% newListItems.forEach(function(item){ %>
+  <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+      <p><%= item.name %></p>
+      <input type="hidden" name="listName" value="<%=listTitle%>">
+    </div>
+  </form>
+  <% }) %>
+</div>
 
 <%- include("footer") -%>

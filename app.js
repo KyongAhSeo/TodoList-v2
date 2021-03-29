@@ -31,19 +31,15 @@ const Item = mongoose.model("Item", itemsSchema);
 
 //5. default item 생성
 const item1 = new Item({
-  name: "환영합니다!"
-});
-
-const item2 = new Item({
   name: "+ 버튼을 눌러서 해야 될 일을 추가하세요."
 });
 
-const item3 = new Item({
+const item2 = new Item({
   name: "<-- 버튼을 클릭하면 삭제됩니다."
 });
 
 //6. default item이 들어갈 array 생성
-const defaultItems = [item1, item2, item3];
+const defaultItems = [item1, item2];
 
 const listSchema = {
   name: String,
@@ -52,16 +48,17 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
+const today = new Date();
+
+const options = {
+  weekday: "long",
+  day: "numeric",
+  month: "long"
+};
+
+let day = today.toLocaleDateString("ko-KR", options);
+
 app.get("/", function(req, res) {
-  var today = new Date();
-
-  var options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-  };
-
-  var day = today.toLocaleDateString("ko-KR", options);
 
   Item.find({}, function(err, foundItems) {
 
@@ -105,6 +102,7 @@ app.get("/:customListName", function(req, res) {
         res.redirect("/" + customListName);
       } else {
         res.render("list", {
+          kindOfDay: day,
           listTitle: foundList.name,
           newListItems: foundList.items
         });
